@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 </head>
 
 
@@ -37,7 +40,13 @@
     </div>
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-        <div class="page-content"><!-- Your content goes here --></div>
+        <div class="page-content"><!-- Your content goes here -->
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col">4</div>
+                <div class="mdl-cell mdl-cell--4-col">4</div>
+                <div class="mdl-cell mdl-cell--4-col">4</div>
+            </div>
+        </div>
         </section>
         <section class="mdl-layout__tab-panel" id="scroll-tab-2">
         <div class="page-content"><!-- Your content goes here --></div>
@@ -56,5 +65,25 @@
         </section>
     </main>
     </div>
+
+<script type="text/javascript" src="js/script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAQtlnlhyEvHWLPOWYmLO3AbQR6N33Z-N4",
+    authDomain: "pattern-library-fcf2b.firebaseapp.com",
+    databaseURL: "https://pattern-library-fcf2b.firebaseio.com",
+    projectId: "pattern-library-fcf2b",
+    storageBucket: "pattern-library-fcf2b.appspot.com",
+    messagingSenderId: "482796711858"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
 </body>
 </html>
+
+
+
