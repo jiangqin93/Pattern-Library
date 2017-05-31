@@ -14,57 +14,87 @@
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="https://static.filestackapi.com/v3/filestack-0.6.2.js"></script>
+
 </head>
 
 
 <body>
-    <!-- Simple header with scrollable tabs. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title">Pattern Library</span>
+   
+   <!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="fixed-header-drawer-exp">
         </div>
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Form</a>
-        <a href="#scroll-tab-2" class="mdl-layout__tab">Comment</a>
-        <a href="#scroll-tab-3" class="mdl-layout__tab">Data/Visualization</a>
-        <a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
-        <a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
-        <a href="#scroll-tab-6" class="mdl-layout__tab">Tab 6</a>
-        </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Pattern Library</span>
+      </div>
     </div>
-    <main class="mdl-layout__content">
-        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-        <div class="page-content"><!-- Your content goes here -->
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col">4</div>
-                <div class="mdl-cell mdl-cell--4-col">4</div>
-                <div class="mdl-cell mdl-cell--4-col">4</div>
-            </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Pattern Library</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here -->
+   
+
+    <div class="page-content">
+   
+   <!-- Upload new button -->
+    <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+        <script>
+            var client = filestack.init('AQuqaDjg1StCa46nJsy9Hz');
+            function showPicker() {
+                client.pick({
+                }).then(function(result) {
+                    console.log(JSON.stringify(result.filesUploaded))
+                });
+            }
+        </script>
+        <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        value="Add New Pattern" onclick="showPicker()" />
+    
+    <!-- Filter tags -->
+        <div class="page-filters">
+            <p class="label">FILTER BY</p>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+             Form
+            </button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+             Navigation
+            </button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+             Filter
+            </button>
         </div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-        <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-3">
-        <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-4">
-        <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-5">
-        <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-6">
-        <div class="page-content"><!-- Your content goes here --></div>
-        </section>
-    </main>
+
+     <!-- Image Gallery -->    
+     <div class="gallery">
+         
+     </div>
+
+
     </div>
+    </div>
+  </main>
+</div>
+
 
 <script type="text/javascript" src="js/script.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
@@ -79,6 +109,10 @@
     messagingSenderId: "482796711858"
   };
   firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+  var client = filestack.init('yourApiKey', { policy: 'policy', signature: 'signature' });
+  client.upload(file, uploadOptions, storeOptions, token);
 </script>
 
 

@@ -1,3 +1,22 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+button.mdl-button
+{
+    float:left;
+}
+    
+.page-content{
+    padding: 16px;
+}
+
+.page-filters{
+    padding-top: 16px;
+}
+
+.label{
+    padding-top: 8px;
+    color:#aeaeae;
+
+}
